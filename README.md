@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Get moving fast with Rails
 
-Things you may want to cover:
+## Ruby version
+3.1.2
 
-* Ruby version
+## Ruby dependencies
+- Administrate
+- Devise
+- Dotenv
+- Factory Bot
+- Honeybadger
+- OJ
+- Pagy
+- Ransack
+- Redis
+- Sendgrid
+- Sidekiq
+- Skylight
 
-* System dependencies
+## Configuration
+Set these environment variables. Use a .env for development/testing:
+- DEFAULT_HOST
+- HONEYBADGER_API_KEY
 
-* Configuration
+## Database initialization
+`rails db:create`
+`rails db:schema:load`
 
-* Database creation
+## How to run the test suite
 
-* Database initialization
+## Services (job queues, cache servers, search engines, etc.)
 
-* How to run the test suite
+## Deployment instructions
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
