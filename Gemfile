@@ -48,13 +48,25 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "honeybadger", "~> 4.0"
+gem 'administrate', '~> 0.18.0'
+gem 'connection_pool', '~> 2.3.0'
+gem 'devise', git: 'https://github.com/heartcombo/devise.git', branch: 'main'
+gem 'honeybadger', '~> 4.0'
+gem 'oj', '~> 3.13.21'
+gem 'pagy', '~> 5.10.1'
+gem 'pundit', '~> 2.2.0'
+gem 'ransack', '~> 3.2.1'
+gem 'redis', '~> 4.8.0'
+gem 'hiredis', '~> 0.6.3'
+gem 'sendgrid-ruby', '~> 6.6.2'
+gem 'sidekiq', '~> 6.5.7'
+gem 'skylight', '~> 5.3.3'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.8.1'
 end
 
 group :development do
