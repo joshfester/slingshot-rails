@@ -42,6 +42,11 @@ bootstrap@^5.2.1:
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.1.tgz#45f97ff05cbe828bad807b014d8425f3aeb8ec3a"
   integrity sha512-UQi3v2NpVPEi1n35dmRRzBJFlgvWHYwyem6yHhuT6afYF+sziEt46McRbT//kVXZ7b1YUYEVGdXEH74Nx3xzGA==
 
+bootswatch@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.2.1.tgz#80c49ac3ad394e58be630978c95e3bce1d1679ac"
+  integrity sha512-tbuZb0nJ1XUvRO8KYoEULsbAlAqazcFS6S5dTeJOkw2RxQgg0RJqKkngRTfNSFfqfI4mTdFPpC4mKkaw0YoDFA==
+
 braces@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
