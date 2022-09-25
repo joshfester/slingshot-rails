@@ -30,5 +30,18 @@ module Slingshot
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+      if html_tag.starts_with? '<label'
+        html_tag.html_safe
+      else
+        html_tag
+          .gsub('form-control', 'form-control is-invalid')
+          .gsub('form-select', 'form-select is-invalid')
+          .gsub('form-check-input', 'form-check-input is-invalid')
+          .html_safe
+      end
+    end
+    
   end
 end
