@@ -1,5 +1,12 @@
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  namespace :admin do
+      resources :users
+
+      root to: "users#index"
+    end
 
   root to: 'pages#home'
 
