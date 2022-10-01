@@ -5,11 +5,18 @@ content_for(:main_class) { 'min-vh-full d-flex align-items-center' }
 
 %>
 
-  <div class="w-100 m-auto container-devise">
+<div class="w-100 m-auto container-devise">
 
   <h1 class="h3 mb-3 fw-normal text-center">Sign up</h1>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= 
+    form_for resource, 
+      as: resource_name, 
+      url: registration_path(resource_name),
+      html: {
+        data: { turbo: false }
+      } do |f| 
+  %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="form-floating">

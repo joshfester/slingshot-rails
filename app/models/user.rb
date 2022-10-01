@@ -13,4 +13,8 @@ class User < ApplicationRecord
     admin: 2
   }
 
+  def can_view_admin?
+    ['editor', 'admin'].include? self.role
+  end
+
 end

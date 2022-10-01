@@ -9,7 +9,16 @@ content_for(:main_class) { 'min-vh-full d-flex align-items-center' }
 
   <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
 
-  <%= form_for( resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= 
+    form_for resource, 
+      as: resource_name, 
+      url: session_path(resource_name),
+      html: {
+        data: { turbo: false }
+      } do |f| 
+  %>
 
     <div class="form-floating">
       <%= 

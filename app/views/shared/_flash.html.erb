@@ -1,0 +1,19 @@
+<%
+
+  if name == 'success'
+    alert_class = 'success'
+  elsif ['danger', 'alert', 'error', 'failure'].include?(name)
+    alert_class = 'danger'
+  else
+    alert_class = 'info'
+  end
+  
+%>
+
+<div class="alert alert-<%= alert_class %> alert-dismissible fade show p-2" role="alert">
+  <strong>
+    <i class="fa-solid fa-circle-info me-2"></i>
+  </strong>
+  <span><%= sanitize(message) %></span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

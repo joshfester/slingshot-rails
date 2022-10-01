@@ -5,3 +5,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootswatch/dist/quartz/bootswatch";
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.navbar-expand-lg .navbar-nav .nav-item {
+  margin-right: 1rem;
+}
