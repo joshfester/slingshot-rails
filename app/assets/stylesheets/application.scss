@@ -1,1 +1,12 @@
 @import "_bootstrap";
+
+.min-vh-full {
+
+  // height of the header is 72px
+  min-height: calc(100vh - 72px);
+
+}
+
+.container-devise {
+  max-width: 330px;
+}
