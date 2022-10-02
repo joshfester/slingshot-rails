@@ -1,77 +1,79 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <i class="bi bi-skip-forward-fill"></i>
-      Slingshot
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <% if current_user.present? %>
-          <li class="nav-item dropdown">
-            <a 
-              class="nav-link dropdown-toggle" 
-              href="#" 
-              role="button" 
-              data-bs-toggle="dropdown" 
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-circle"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <% if current_user.can_view_admin? %>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <i class="bi bi-skip-forward-fill"></i>
+        Slingshot
+      <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <% if current_user.present? %>
+            <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle" 
+                href="#" 
+                role="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <% if current_user.can_view_admin? %>
+                  <li>
+                    <%= 
+                      link_to 'Admin', 
+                        admin_root_path,
+                        class: 'dropdown-item'
+                    %>
+                  </li>
+                <% end %>
                 <li>
                   <%= 
-                    link_to 'Admin', 
-                      admin_root_path,
+                    link_to 'Account', 
+                      profile_path,
                       class: 'dropdown-item'
                   %>
                 </li>
-              <% end %>
-              <li>
-                <%= 
-                  link_to 'Account', 
-                    profile_path,
-                    class: 'dropdown-item'
-                %>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a 
-                  class="dropdown-item" 
-                  href="<%= destroy_user_session_path %>"
-                >
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= 
-              link_to 'Login', 
-                new_user_session_path,
-                class: 'nav-link',
-                'aria-current': 'page'
-            %>
-          </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a 
+                    class="dropdown-item" 
+                    href="<%= destroy_user_session_path %>"
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= 
+                link_to 'Login', 
+                  new_user_session_path,
+                  class: 'nav-link',
+                  'aria-current': 'page'
+              %>
+            </li>
+          <% end %>
+        </ul>
+        <% if current_user.blank? %>
+          <%= 
+            link_to 'Sign Up',
+              new_user_registration_path,
+              class: 'btn btn-secondary'
+          %>
         <% end %>
-      </ul>
-      <% if current_user.blank? %>
-        <%= 
-          link_to 'Sign Up',
-            new_user_registration_path,
-            class: 'btn btn-secondary'
-        %>
-      <% end %>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>

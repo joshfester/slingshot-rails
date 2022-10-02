@@ -14,28 +14,30 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="<%= yield :body_class %>">
+  <body 
+    id="<%= action_name %>" 
+    class="<%= controller_name %> <%= yield :body_class %> <%= 'devise' if devise_controller? %>"
+  >
 
     <%= render 'shared/header' %>
 
-    <div class="container my-2">
-      <div class="row">
-        <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
-          <% flash.each do |name, message| -%>
-            <%= 
-              render partial: "shared/flash", 
-                locals: {
-                  name: name,
-                  message: message
-                } 
-            %>
-          <% end -%>
-        </div>
-      </div>
-    </div>
+    <main class="<%= content_for?(:main_class) ? yield(:main_class) : "container min-vh-full pt-4 pb-5" %>">
 
-    <main class="<%= content_for?(:main_class) ? yield(:main_class) : "container min-vh-100 pt-4 pb-5" %>">
+      
+      <div class="container-flash">
+        <% flash.each do |name, message| -%>
+          <%= 
+            render partial: "shared/flash", 
+              locals: {
+                name: name,
+                message: message
+              } 
+          %>
+        <% end -%>
+      </div>
+
       <%= yield %>
+
     </main>
 
 

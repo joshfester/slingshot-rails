@@ -1,7 +1,7 @@
 <% 
 
 content_for(:html_title) { 'Login' } 
-content_for(:main_class) { 'min-vh-full d-flex align-items-center' }
+content_for(:main_class) { 'noclass' }
 
 %>
 
@@ -38,6 +38,7 @@ content_for(:main_class) { 'min-vh-full d-flex align-items-center' }
 
   <div class="text-center">
     <%= render "devise/shared/links" %>
+    <%= link_to 'Home', root_path %>
   </div>
 
 </div>

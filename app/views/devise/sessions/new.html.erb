@@ -1,60 +1,55 @@
 <% 
 
-content_for(:html_title) { 'Login' } 
-content_for(:main_class) { 'min-vh-full d-flex align-items-center' }
+content_for(:html_title) { 'Login' }
+content_for(:main_class) { 'noclass' }
 
 %>
 
-<div class="w-100 m-auto container-devise">
+<h1 class="h3 mb-3 fw-normal text-center">Login</h1>
 
-  <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
+<%= 
+  form_for resource, 
+    as: resource_name, 
+    url: session_path(resource_name),
+    html: {
+      data: { turbo: false }
+    } do |f| 
+%>
 
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="form-floating">
+    <%= 
+      f.email_field :email, 
+        autofocus: true, 
+        autocomplete: "email", 
+        class: 'form-control rounded-0 rounded-top',
+        placeholder: 'Email'
+    %>
+    <%= f.label :email %>
+  </div>
 
-  <%= 
-    form_for resource, 
-      as: resource_name, 
-      url: session_path(resource_name),
-      html: {
-        data: { turbo: false }
-      } do |f| 
-  %>
+  <div class="form-floating mb-2">
+    <%= 
+      f.password_field :password, 
+        autocomplete: "current-password", 
+        class: 'form-control rounded-0 rounded-bottom',
+        placeholder: 'Password'
+    %>
+    <%= f.label :password %>
+  </div>
 
-    <div class="form-floating">
-      <%= 
-        f.email_field :email, 
-          autofocus: true, 
-          autocomplete: "email", 
-          class: 'form-control rounded-0 rounded-top',
-          placeholder: 'Email'
-      %>
-      <%= f.label :email %>
-    </div>
-
-    <div class="form-floating mb-2">
-      <%= 
-        f.password_field :password, 
-          autocomplete: "current-password", 
-          class: 'form-control rounded-0 rounded-bottom',
-          placeholder: 'Password'
-      %>
-      <%= f.label :password %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="form-check mb-2">
-        <%= f.check_box :remember_me, class: 'form-check-input' %>
-        <%= f.label :remember_me, class: 'form-check-label' %>
-      </div>
-    <% end %>
-
-    <div class="mb-3">
-      <%= f.submit "Log in", class: 'btn btn-primary w-100' %>
+  <% if devise_mapping.rememberable? %>
+    <div class="form-check mb-2">
+      <%= f.check_box :remember_me, class: 'form-check-input' %>
+      <%= f.label :remember_me, class: 'form-check-label' %>
     </div>
   <% end %>
 
-  <div class="text-center">
-    <%= render "devise/shared/links" %>
+  <div class="mb-3">
+    <%= f.submit "Log in", class: 'btn btn-primary w-100' %>
   </div>
+<% end %>
 
+<div class="text-center">
+  <%= render "devise/shared/links" %>
+  <%= link_to 'Home', root_path %>
 </div>

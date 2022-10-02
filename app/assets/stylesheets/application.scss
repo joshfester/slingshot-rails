@@ -7,6 +7,21 @@
 
 }
 
+body.devise {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+body.devise > header,
+body.devise > footer {
+  display: none;
+}
+body.devise > main {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+}
 .container-devise {
   max-width: 330px;
 }
