@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   get '/health', to: proc { [200, {}, ['success']] }
 
-  devise_for :users
+  devise_for :users, path: 'auth'
 
   resources :users, only: [ :update, :index ]
 
-  get 'profile', to: 'users#show'
+  get 'profile', to: 'users#edit'
   
 end
