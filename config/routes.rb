@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   
   namespace :admin do
       resources :users
+      resources :dashboards, only: [:index]
 
-      root to: "users#index"
+      root to: "dashboards#index"
     end
 
   root to: 'pages#home'
