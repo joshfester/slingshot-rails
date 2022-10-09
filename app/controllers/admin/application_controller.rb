@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # All Administrate controllers inherit from this
 # `Administrate::ApplicationController`, making it the ideal place to put
 # authentication logic or other before_actions.
@@ -33,6 +35,5 @@ module Admin
     def show_action?(action, resource)
       Pundit.policy!(pundit_user, [:admin, resource]).send("#{action}?".to_sym)
     end
-    
   end
 end

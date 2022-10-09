@@ -1,12 +1,12 @@
-class ApplicationService
+# frozen_string_literal: true
 
-  attr_reader :result
-  attr_reader :fail_message
+class ApplicationService
+  attr_reader :result, :fail_message
 
   def self.call(**args)
     new(**args).tap do |service|
       service.instance_variable_set(
-        "@result",
+        '@result',
         service.call
       )
     end
@@ -28,5 +28,4 @@ class ApplicationService
     @fail_message = message
     @failure = true
   end
-
 end

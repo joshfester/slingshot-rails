@@ -1,15 +1,15 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
-  def update 
+class UsersController < ApplicationController
+  def update
     current_user.assign_attributes(resource_params)
 
     if current_user.save
       flash[:success] = 'Profile saved'
-      redirect_back_or_to profile_path
     else
       flash[:danger] = 'Error saving profile'
-      redirect_back_or_to profile_path
     end
+    redirect_back_or_to profile_path
   end
 
   private
@@ -20,5 +20,4 @@ class UsersController < ApplicationController
       :last_name
     )
   end
-
 end

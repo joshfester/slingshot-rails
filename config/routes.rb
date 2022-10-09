@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
-  
   namespace :admin do
-      resources :users
-      resources :dashboards, only: [:index]
+    resources :users
+    resources :dashboards, only: [:index]
 
-      root to: "dashboards#index"
-    end
+    root to: 'dashboards#index'
+  end
 
   root to: 'pages#home'
 
@@ -15,8 +16,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'auth'
 
-  resources :users, only: [ :update, :index ]
+  resources :users, only: %i[update index]
 
   get 'profile', to: 'users#edit'
-  
 end
