@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def show 
-
-  end
-
   def update 
     current_user.assign_attributes(resource_params)
 

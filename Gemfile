@@ -57,6 +57,7 @@ gem 'pagy', '~> 5.10.1'
 gem 'pundit', '~> 2.2.0'
 gem 'ransack', '~> 3.2.1'
 gem 'redis', '~> 4.8.0'
+gem 'rubocop-rails', require: false
 gem 'hiredis', '~> 0.6.3'
 gem 'sendgrid-ruby', '~> 6.6.2'
 gem 'sidekiq', '~> 6.5.7'
