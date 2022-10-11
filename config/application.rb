@@ -21,6 +21,7 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 module Slingshot
+  # The Rails Application clas
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -35,13 +36,13 @@ module Slingshot
 
     config.action_view.field_error_proc = proc do |html_tag, _instance|
       if html_tag.starts_with? '<label'
-        html_tag.html_safe
+        html_tag.html_safe # rubocop:disable Rails/OutputSafety
       else
         html_tag
           .gsub('form-control', 'form-control is-invalid')
           .gsub('form-select', 'form-select is-invalid')
           .gsub('form-check-input', 'form-check-input is-invalid')
-          .html_safe
+          .html_safe # rubocop:disable Rails/OutputSafety
       end
     end
   end

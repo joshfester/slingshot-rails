@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
+  # All admin policies inherit this
   class ApplicationPolicy
     attr_reader :user, :record
 
@@ -41,6 +42,7 @@ module Admin
       index?
     end
 
+    # Default scope
     class Scope
       def initialize(user, scope)
         @user = user

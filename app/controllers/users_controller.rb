@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# User resource routes
 class UsersController < ApplicationController
   def update
     current_user.assign_attributes(resource_params)

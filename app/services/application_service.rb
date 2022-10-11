@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# All services inherit from this
+# Always try to delegate business logic to
+# a service with a single responsibility
 class ApplicationService
   attr_reader :result, :fail_message
 

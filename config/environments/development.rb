@@ -2,6 +2,7 @@
 
 require 'active_support/core_ext/integer/time'
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -76,3 +77,4 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: default_host, port: 3000 }
   Rails.application.routes.default_url_options[:host] = "#{default_host}:3000"
 end
+# rubocop:enable Metrics/BlockLength
