@@ -5,7 +5,7 @@
 module Admin
   class UsersController < ApplicationController
     #
-    # def update 
+    # def update
     #   super
     #   send_foo_updated_email(requested_resource)
     # end
