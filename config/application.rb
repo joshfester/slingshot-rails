@@ -36,13 +36,13 @@ module Slingshot
 
     config.action_view.field_error_proc = proc do |html_tag, _instance|
       if html_tag.starts_with? '<label'
-        html_tag.html_safe # rubocop:disable Rails/OutputSafety
+        html_tag.html_safe
       else
         html_tag
           .gsub('form-control', 'form-control is-invalid')
           .gsub('form-select', 'form-select is-invalid')
           .gsub('form-check-input', 'form-check-input is-invalid')
-          .html_safe # rubocop:disable Rails/OutputSafety
+          .html_safe
       end
     end
   end

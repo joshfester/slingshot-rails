@@ -1,1 +1,37 @@
-hello
+<div class="p-3">
+
+  <h2 class="mb-3">Third Party Services</h2>
+
+  <div class="d-flex">
+    <% @services.each do |service| %>
+      <div class="border rounded me-3 mb-3 p-2">
+        <h6 class="mb-2">
+          <%= link_to service[:title] do %>
+            <i class="bi bi-box-arrow-up-right me-1"></i>
+            <%= service[:title] %>
+          <% end %>
+        </h6>
+
+        <p class="text-muted">
+          <%= service[:description] %>
+        </p>
+
+        <% if service[:api_key].present? %>
+          <p>
+            <label>API Key:</label>
+            <input type="text" disabled value="<%= service[:api_key] %>">
+          </p>
+        <% end %>
+
+        <% if service[:js_key].present? %>
+          <p>
+            <label>JS Key:</label>
+            <input type="text" disabled value="<%= service[:js_key] %>">
+          </p>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+
+</div>
